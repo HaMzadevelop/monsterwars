@@ -24,7 +24,9 @@ public class DebugManager {
     
     public static void send(String message){
         String time = DateFormat.getTimeInstance().getTimeZone().toString();
-        ChatUtilities.sendToConsole("["+time+"] : "+message);
+        String format = "["+time+"] : "+message;
+        ChatUtilities.sendToConsole(format);
+        log.add(format);
     }
     
 }
