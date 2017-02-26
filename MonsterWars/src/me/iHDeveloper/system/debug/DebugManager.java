@@ -5,8 +5,10 @@
  */
 package me.iHDeveloper.system.debug;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import me.iHDeveloper.util.ChatUtilities;
 
 /**
  *
@@ -21,7 +23,8 @@ public class DebugManager {
     }
     
     public static void send(String message){
-        
+        String time = DateFormat.getTimeInstance().getTimeZone().toString();
+        ChatUtilities.sendToConsole("["+time+"] : "+message);
     }
     
 }
