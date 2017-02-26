@@ -5,6 +5,10 @@
  */
 package me.iHDeveloper.util;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.ConsoleCommandSender;
+
 /**
  *
  * @author Admin
@@ -18,5 +22,14 @@ public class ChatUtilities {
     }
     
     // TODO add chat methods
+    public static void sendToConsole(String message){
+        ConsoleCommandSender console = Bukkit.getConsoleSender();
+        console.sendMessage(color(message));
+    }
+    
+    private static String color(String format){
+        return ChatColor.translateAlternateColorCodes('&', format);
+    }
+    
     
 }
