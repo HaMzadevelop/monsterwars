@@ -5,10 +5,19 @@
  */
 package me.iHDeveloper.system.command;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Admin
  */
 public class CommandManager {
+    
+    private static List<Command> commands = new ArrayList<>();
+    
+    public static void addCommand(Command command){
+        commands.add(command);
+    }
     
 }
