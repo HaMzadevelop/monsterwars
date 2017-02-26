@@ -5,10 +5,20 @@
  */
 package me.iHDeveloper.system.command;
 
+import org.bukkit.command.CommandSender;
+
 /**
  *
  * @author Admin
  */
-public class CommandListener {
+public abstract class CommandListener {
+
+    private String command = null;
+    
+    public CommandListener(String command) {
+        this.command = command;
+    }
+    
+    public abstract void onCommand(CommandSender sender, String[] args);
     
 }
