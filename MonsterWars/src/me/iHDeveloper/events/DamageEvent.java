@@ -5,14 +5,19 @@
  */
 package me.iHDeveloper.events;
 
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 /**
  *
  * @author Admin
  */
-public class PreLoginEvent implements Listener{
+public class DamageEvent implements Listener{
     
-    
+    @EventHandler
+    public void onDamage(EntityDamageByEntityEvent e){
+        // TODO if player damage by some one
+    }
     
 }
