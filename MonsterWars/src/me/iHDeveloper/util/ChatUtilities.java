@@ -47,6 +47,7 @@ public class ChatUtilities {
         PlayerConnection connection = ((CraftPlayer) player).getHandle().playerConnection;
         connection.sendPacket(packetTitle);
         connection.sendPacket(packetSubTitle);
+        connection.sendPacket(length);
     }
     
     private static String color(String format){
