@@ -36,9 +36,17 @@ public class Team {
         return players.contains(player);
     }
     
+    public List<Player> getPlayers(){
+        return players.get();
+    }
+    
 }
 class PlayerList{
-    private List<Player> list = new ArrayList<Player>();
+    private final List<Player> list;
+
+    PlayerList() {
+        this.list = new ArrayList<>();
+    }
     
     void add(Player player){
         list.add(player);
@@ -50,5 +58,9 @@ class PlayerList{
     
     boolean contains(Player player){
         return list.contains(player);
+    }
+    
+    List get(){
+        return list;
     }
 }

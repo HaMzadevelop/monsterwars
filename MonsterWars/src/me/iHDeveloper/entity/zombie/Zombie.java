@@ -5,10 +5,19 @@
  */
 package me.iHDeveloper.entity.zombie;
 
+import net.minecraft.server.v1_8_R1.EntityZombie;
+import net.minecraft.server.v1_8_R1.World;
+
 /**
  *
  * @author Admin
  */
-public class Zombie {
-    // TODO entity
+public class Zombie extends EntityZombie{
+    
+    public Zombie(World world) {
+        super(world);
+    }
+    
+    
+    
 }
