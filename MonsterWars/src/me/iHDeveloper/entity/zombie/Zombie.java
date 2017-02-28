@@ -23,7 +23,7 @@ public class Zombie extends Monster{
     
     // Setup Entity
     public Zombie(Location location) {
-        
+        // TODO create a zombie 
     }
     
     
