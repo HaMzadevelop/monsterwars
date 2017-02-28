@@ -5,8 +5,10 @@
  */
 package me.iHDeveloper.entity.zombie;
 
-import net.minecraft.server.v1_8_R1.Zombie;
+import me.iHDeveloper.entity.Monster;
 import net.minecraft.server.v1_8_R1.EntityLiving;
+import org.bukkit.Location;
+import org.bukkit.entity.EntityType;
 
 /**
  *
@@ -20,7 +22,7 @@ public class Zombie extends Monster{
     
     // Setup Entity
     public Zombie() {
-        // Empty
+        this.location = location;
     }
     
     public void setMaxHealth(int maxHealth){
