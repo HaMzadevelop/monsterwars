@@ -18,7 +18,8 @@ public class Team {
     private String name = "";
     private String prefix = "";
     private PlayerList players = new PlayerList();
-
+    private Monster monste;
+    
     public Team(String name, String prefix) {
         this.name = name;
         this.prefix = prefix;
@@ -38,6 +39,10 @@ public class Team {
     
     public List<Player> getPlayers(){
         return players.get();
+    }
+    
+    public void setupMonster(){
+        // TODO setup monster in the 
     }
     
 }
