@@ -18,11 +18,13 @@ public class Team {
     private String name = "";
     private String prefix = "";
     private PlayerList players = new PlayerList();
-    private Monster monste;
+    private MonsterTeam monster;
+    private Location monsterSpawn;
     
-    public Team(String name, String prefix) {
+    public Team(String name, String prefix, Location monsterSpawn) {
         this.name = name;
         this.prefix = prefix;
+        this.monsterSpawn = monsterSpawn;
     }
     
     public void addPlayer(Player player){
@@ -42,7 +44,11 @@ public class Team {
     }
     
     public void setupMonster(){
-        // TODO setup monster in the 
+        monster = new MonsterTeam(monsterSpawn);
+    }
+    
+    public void spawnMonster(){
+        monster.spawn();
     }
     
 }
@@ -71,14 +77,16 @@ class PlayerList{
 }
 class MonsterTeam{
     private Monster monster;
-    public MonsterTeam(){ // Generate the monster
+    private Location spawn;
+    public MonsterTeam(Location spawn){ // Generate the monster
         SecureRandom random = new SecureRandom();
         Monster[] monsters = Monster.getMonsters();
         int monster = random.nextInt(monsters.length);
         this.monster = monsters[monster];
+        this.spawn = spawn;
     }
     public void setup(){
-        monster.setup(); // Setup the monster
-        monster.setMaxHealth(100); // Set max heath in the monster
+        monster.getClass().getMethod("setup").invoke(spawn);
+        monster.getClass().getMethod("setMaxHealth").invoke(100);
     }
 }
