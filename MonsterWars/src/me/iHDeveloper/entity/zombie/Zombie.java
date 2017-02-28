@@ -5,6 +5,8 @@
  */
 package me.iHDeveloper.entity.zombie;
 
+import net.minecraft.server.v1_8_R1.Zombie;
+import net.minecraft.server.v1_8_R1.EntityLiving;
 import net.minecraft.server.v1_8_R1.EntityZombie;
 import net.minecraft.server.v1_8_R1.World;
 
@@ -12,10 +14,16 @@ import net.minecraft.server.v1_8_R1.World;
  *
  * @author Admin
  */
-public class Zombie extends EntityZombie{
+public class Zombie extends Monster{
     
-    public Zombie(World world) {
-        super(world);
+    private Zombie zombie;
+    private EntityZombie entity;
+    private EntityLiving living;
+    private Location location;
+    
+    // Setup Entity
+    public Zombie(Location location) {
+        
     }
     
     
