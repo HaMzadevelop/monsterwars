@@ -69,3 +69,16 @@ class PlayerList{
         return list;
     }
 }
+class MonsterTeam{
+    private Monster monster;
+    public MonsterTeam(){ // Generate the monster
+        SecureRandom random = new SecureRandom();
+        Monster[] monsters = Monster.getMonsters();
+        int monster = random.nextInt(monsters.length);
+        this.monster = monsters[monster];
+    }
+    public void setup(){
+        monster.setup(); // Setup the monster
+        monster.setMaxHealth(100); // Set max heath in the monster
+    }
+}
