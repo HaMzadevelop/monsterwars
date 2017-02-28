@@ -19,14 +19,16 @@ public class Zombie extends Monster{
     private Location location;
     
     // Setup Entity
-    public Zombie(Location location) {
-        entity = (org.bukkit.entity.Zombie)location.getWorld().spawnEntity(location, EntityType.ZOMBIE);
+    public Zombie() {
+        // Empty
     }
     
     public void setMaxHealth(int maxHealth){
         entity.setMaxHealth(maxHealth);
     }
     
-    
+    public void spawn(Location location){
+        entity = (org.bukkit.entity.Zombie)location.getWorld().spawnEntity(location, EntityType.ZOMBIE);
+    }
     
 }
