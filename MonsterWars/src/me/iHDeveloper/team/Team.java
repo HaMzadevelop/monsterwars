@@ -1,18 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package me.iHDeveloper.team;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import org.bukkit.entity.Player;
 
-/**
- *
- * @author Admin
- */
+import me.iHDeveloper.entity.Monster;
+import me.iHDeveloper.system.SettingsManager;
+
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.scoreboard.Scoreboard;
+
+
 public class Team {
     
     private String name = "";
@@ -44,12 +43,27 @@ public class Team {
     }
     
     public void setupMonster(){
-        monster = new MonsterTeam(monsterSpawn);
+        monster = new MonsterTeam(prefix+name, monsterSpawn);
+        monster.setup();
+        spawnMonster();
     }
     
     public void spawnMonster(){
-        monster.spawn();
+        monster.spawn(monsterSpawn);
     }
+    
+    public void setupScoreboard(Scoreboard board){
+    	for (Player player : players.get()) {
+			player.setScoreboard(board);
+		}
+    }
+
+	public void move() {
+		// TODO Auto-generated method stub
+		for (Player all : players.get()) {
+			all.teleport(SettingsManager.getTeamSpawn(name.toLowerCase()));
+		}
+	}
     
 }
 class PlayerList{
@@ -71,22 +85,36 @@ class PlayerList{
         return list.contains(player);
     }
     
-    List get(){
+    List<Player> get(){
         return list;
     }
 }
 class MonsterTeam{
     private Monster monster;
     private Location spawn;
-    public MonsterTeam(Location spawn){ // Generate the monster
+    public MonsterTeam(String name, Location spawn){ // Generate the monster
         SecureRandom random = new SecureRandom();
-        Monster[] monsters = Monster.getMonsters();
+        Monster[] monsters = Monster.getMonsters(name);
         int monster = random.nextInt(monsters.length);
         this.monster = monsters[monster];
         this.spawn = spawn;
     }
-    public void setup(){
-        monster.getClass().getMethod("setup").invoke(spawn);
-        monster.getClass().getMethod("setMaxHealth").invoke(100);
+    public void spawn(Location monsterSpawn) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setup(){
+        try{
+        	for(java.lang.reflect.Method m : monster.getClass().getMethods()){
+        		if(m.getName().equalsIgnoreCase("spawn")){
+        			m.invoke(monster, spawn);
+        		} else if(m.getName().equalsIgnoreCase("setMaxHealth")){
+        			m.invoke(monster, 100);
+        		}
+        	}
+        }
+        catch(Exception ex){
+        	ex.printStackTrace();
+        }
     }
 }

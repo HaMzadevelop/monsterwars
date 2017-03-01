@@ -7,7 +7,11 @@ package me.iHDeveloper.countdowns;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import me.iHDeveloper.game.Game;
+import me.iHDeveloper.team.Team;
 import me.iHDeveloper.util.ChatUtilities;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -29,16 +33,25 @@ public class StartGame implements Runnable{
                 switch(timer){
                     case 5:
                         sendToAll("&2&l5");
+                        break;
                     case 4:
                         sendToAll("&a&l4");
+                        break;
                     case 3:
                         sendToAll("&e&l3");
+                        break;
                     case 2:
                         sendToAll("&c&l2");
+                        break;
                     case 1:
                         sendToAll("&4&l1");
+                        for (Team team : Game.getTeams())
+                    		team.move();
+                        new Thread(new SpawnEntity()).start();
+                        return;
                     default:
                         sendToAll("&d&l"+timer);
+                        break;
                 }
             }
             try {

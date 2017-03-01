@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package me.iHDeveloper.countdowns;
 
 import java.util.logging.Level;
@@ -12,10 +7,7 @@ import me.iHDeveloper.team.Team;
 import me.iHDeveloper.util.ChatUtilities;
 import org.bukkit.entity.Player;
 
-/**
- *
- * @author Admin
- */
+
 public class SpawnEntity implements Runnable{
 
     private static int timer = 10;
@@ -27,12 +19,17 @@ public class SpawnEntity implements Runnable{
                 for (Team team : Game.getTeams()) {
                     sendToTeam(team, "", "&8&lYour monster...", 20, 30, 20);
                 }
+                System.out.println("MSG1");
             }else if(timer == 5){
                 for (Team team : Game.getTeams()) {
                     sendToTeam(team, "", "&7&lis...", 20, 30, 20);
                 }
+                System.out.println("MSG2");
             }if(timer == 2){
                 // TODO say to the team what's the monster!
+            	for(Team team : Game.getTeams())
+            		team.setupMonster();
+            	System.out.println("END");
             }
             try {
                 Thread.sleep(1000);
