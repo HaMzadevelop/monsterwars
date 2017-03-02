@@ -35,5 +35,9 @@ public class Game {
 	   // TODO Auto-generated method stub
 	   start();
    }
-    
+   
+   public static boolean isStarted(){
+       return isStart;
+   }
+   
 }
