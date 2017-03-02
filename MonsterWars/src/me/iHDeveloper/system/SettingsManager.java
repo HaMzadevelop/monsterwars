@@ -55,4 +55,12 @@ public class SettingsManager {
 		return (Location)config.get("data.spawns."+team+".monster");
 	}
 	
+        public static int getMaxPlayers(){
+            return config.getInt("settings.game.max");
+        }
+        
+        public static int getPlayersNeeded(){
+            return config.getInt("settings.game.need");
+        }
+        
 }
