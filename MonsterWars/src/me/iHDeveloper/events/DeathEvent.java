@@ -5,6 +5,8 @@
  */
 package me.iHDeveloper.events;
 
+import me.iHDeveloper.util.ChatUtilities;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -17,7 +19,9 @@ public class DeathEvent implements Listener{
     
     @EventHandler
     public void onDeath(PlayerDeathEvent e){
-        // TODO if player death
+        Player p = e.getEntity();
+        ChatUtilities.sendInfo(p.getDisplayName()+" &cfall down!");
+        // TODO if the player team is dead!
     }
     
 }
