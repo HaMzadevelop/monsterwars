@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import me.iHDeveloper.commands.ConfigCommand;
+import me.iHDeveloper.commands.StartCommand;
 import me.iHDeveloper.util.ChatUtilities;
 
 import org.bukkit.command.CommandExecutor;
@@ -19,6 +20,7 @@ public class CommandManager implements CommandExecutor{
 		commands = new ArrayList<Command>();
 		//commands.add();
 		commands.add(new ConfigCommand());
+                commands.add(new StartCommand());
 	}
 	
 	@Override

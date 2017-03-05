@@ -29,7 +29,6 @@ public class MonsterWars extends JavaPlugin{
     	ChatUtilities.sendToConsole("&aEnabled!");
 		PluginManager pm = getServer().getPluginManager();
 		getCommand("monsterwars").setExecutor(new CommandManager());
-		Game.getTeams().add(new Team("red", "&4", SettingsManager.getTeamMonsterSpawn("red")));
 		pm.registerEvents(new CommandProcessEvent(), this);
 		pm.registerEvents(new JoinEvent(), this);
 	}

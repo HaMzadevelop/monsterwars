@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package me.iHDeveloper.countdowns;
 
 import java.util.logging.Level;
@@ -16,10 +11,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
-/**
- *
- * @author Admin
- */
 public class StartGame implements Runnable{
 
     private static int timer = 30;
@@ -47,7 +38,7 @@ public class StartGame implements Runnable{
                         sendToAll("&4&l1");
                         for (Team team : Game.getTeams())
                     		team.move();
-                        new Thread(new SpawnEntity()).start();
+                        Game.spawnEntity();
                         return;
                     default:
                         sendToAll("&d&l"+timer);

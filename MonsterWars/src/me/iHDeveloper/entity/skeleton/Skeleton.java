@@ -9,9 +9,9 @@ import me.iHDeveloper.entity.Monster;
 
 public class Skeleton extends Monster{
     
-	private org.bukkit.entity.Skeleton entity;
+    private org.bukkit.entity.Skeleton entity;
     @SuppressWarnings("unused")
-	private Location location;
+    private Location location;
     private String name;
     // Setup Entity
     public Skeleton(String name) {
