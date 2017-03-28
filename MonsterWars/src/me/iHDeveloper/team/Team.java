@@ -42,6 +42,14 @@ public class Team {
         return players.get();
     }
     
+    public String getName(){
+        return name;
+    }
+    
+    public String getPrefix(){
+        return prefix;
+    }
+
     public void setupMonster(){
         monster = new MonsterTeam(prefix+name, monsterSpawn);
         monster.setup();
